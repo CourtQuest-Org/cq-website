@@ -1,24 +1,25 @@
-import './App.css'
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import FeaturesSection from './components/FeaturesSection';
-import TeamSection from './components/TeamSection';
-import JoinQuestSection from './components/JoinQuestSection';
-import FAQSection from './components/FAQSection';
-import Footer from './components/Footer';
+import "./App.css";
+import SmoothScroll from "./lib/SmoothScroll";
+import Navbar from "./components/Navbar";
+import HomeSection from "./components/sections/HomeSection";
+import AboutAppSection from "./components/sections/AboutAppSection";
+import AboutUsSection from "./components/sections/AboutUsSection";
+import ContactSection from "./components/sections/ContactSection";
 
 function App() {
   return (
-    <div className="app-container">
-      <Navbar />
-      <HeroSection />
-      <FeaturesSection />
-      <TeamSection />
-      <JoinQuestSection />
-      <FAQSection />
-      <Footer />
-    </div>
-  )
+    <SmoothScroll>
+      <div className="app-container">
+        <Navbar />
+        <main>
+          <HomeSection />
+          <AboutAppSection />
+          <AboutUsSection />
+          <ContactSection />
+        </main>
+      </div>
+    </SmoothScroll>
+  );
 }
 
-export default App
+export default App;

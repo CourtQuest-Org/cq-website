@@ -1,0 +1,31 @@
+:root {
+  /* Color — single accent, high contrast, dark-first */
+  --cq-accent: #f0455f;
+  --cq-accent-dim: #c9304a;
+  --cq-accent-soft: rgba(240, 69, 95, 0.12);
+  --cq-ink: #0b0c0e;
+  --cq-surface: #141518;
+  --cq-surface-2: #1c1e22;
+  --cq-line: rgba(255, 255, 255, 0.08);
+  --cq-paper: #f4f4f2;
+  --cq-text: #eef0f3;
+  --cq-mute: #8a8f98;
+
+  /* Type */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Fluid scale */
+  --step-hero: clamp(2.8rem, 9vw, 8rem);
+  --step-h2: clamp(2rem, 5vw, 4.25rem);
+  --step-h3: clamp(1.25rem, 2.2vw, 1.9rem);
+  --step-label: clamp(0.7rem, 1vw, 0.8rem);
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 5vw, 6rem);
+  --maxw: 1320px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-h: 76px;
+}
