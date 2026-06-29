@@ -2,6 +2,7 @@ import "./App.css";
 import SmoothScroll from "./lib/SmoothScroll";
 import Navbar from "./components/Navbar";
 import HomeSection from "./components/sections/HomeSection";
+import StatsSection from "./components/sections/StatsSection";
 import AboutAppSection from "./components/sections/AboutAppSection";
 import AboutUsSection from "./components/sections/AboutUsSection";
 import ContactSection from "./components/sections/ContactSection";
@@ -13,6 +14,7 @@ function App() {
         <Navbar />
         <main>
           <HomeSection />
+          <StatsSection />
           <AboutAppSection />
           <AboutUsSection />
           <ContactSection />

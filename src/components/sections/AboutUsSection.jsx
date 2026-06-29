@@ -24,7 +24,6 @@ export default function AboutUsSection() {
     <section id="team" className="scene team-scene">
       <div className="scene-inner">
         <header className="scene-head">
-          <span className="hud-label">03 — About Us</span>
           <h2 className="scene-title">
             A team building the fastest way to <em>get on court.</em>
           </h2>

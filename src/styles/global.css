@@ -6,6 +6,7 @@
 
 html {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
@@ -14,9 +15,9 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background: var(--cq-ink);
+  background: var(--cq-cream);
   color: var(--cq-text);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-synthesis: none;
   overflow-x: hidden;
 }
@@ -46,26 +47,28 @@ p {
 }
 
 ::selection {
-  background: var(--cq-accent);
+  background: var(--cq-pink);
   color: #fff;
 }
 
-/* Shared HUD label */
+/* Section label — pink dash + uppercase mono tag */
 .hud-label {
   font-family: var(--font-mono);
   font-size: var(--step-label);
-  letter-spacing: 0.32em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--cq-mute);
+  color: var(--cq-pink);
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 .hud-label::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  background: var(--cq-accent);
+  content: '';
+  width: 20px;
+  height: 1.5px;
+  background: var(--cq-pink);
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .app-container {
@@ -76,7 +79,7 @@ p {
 .scene {
   position: relative;
   min-height: 100vh;
-  padding: calc(var(--nav-h) + 4vh) var(--gutter) 8vh;
+  padding: calc(var(--nav-h) + 5vh) var(--gutter) 8vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,17 +90,14 @@ p {
   margin: 0 auto;
 }
 
-/* Reusable radar grid backdrop */
+/* Subtle dot-grid texture (used sparingly) */
 .grid-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(var(--cq-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--cq-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at center, #000 0%, transparent 78%);
-  -webkit-mask-image: radial-gradient(circle at center, #000 0%, transparent 78%);
-  opacity: 0.6;
+  background-image: radial-gradient(circle, var(--cq-cream-3) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.45;
 }
 
 @media (prefers-reduced-motion: reduce) {

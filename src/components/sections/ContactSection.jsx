@@ -24,13 +24,11 @@ const LINKS = [
 export default function ContactSection() {
   return (
     <section id="contact" className="scene contact-scene">
-      <div className="grid-bg" />
       <div className="scene-inner">
-        <span className="hud-label">04 — Contact</span>
         <h2 className="contact-title">
           Elevate your play,
           <br />
-          <em>enhance your quest.</em>
+          <em>embrace the quest.</em>
         </h2>
 
         <ul className="contact-links">
@@ -42,7 +40,7 @@ export default function ContactSection() {
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
               >
                 <span className="contact-meta">
-                  <Icon size={18} strokeWidth={1.6} />
+                  <Icon size={16} strokeWidth={1.6} />
                   {label}
                 </span>
                 <span className="contact-value">{value}</span>

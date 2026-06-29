@@ -1,35 +1,74 @@
 import { motion } from "motion/react";
+import court1  from "../../assets/tenniscourt1.png";
+import court2  from "../../assets/tenniscourt2.jpg";
+import court3  from "../../assets/tenniscourt3.jpg";
+import court4  from "../../assets/tenniscourt4.jpeg";
+import court5  from "../../assets/tenniscourt5.jpg";
+import court6  from "../../assets/tenniscourt6.webp";
+import court7  from "../../assets/tenniscourt7.jpg";
+import court8  from "../../assets/tenniscourt8.avif";
+import court9  from "../../assets/tenniscourt9.webp";
+import court10 from "../../assets/tenniscourt10.jpg";
+import court11 from "../../assets/tenniscourt11.avif";
+import court12 from "../../assets/tenniscourt12.avif";
+import court13 from "../../assets/tenniscourt13.jpg";
+import court14 from "../../assets/tenniscourt14.avif";
 
-const line = {
-  hidden: { y: "110%" },
-  visible: (i) => ({
-    y: "0%",
-    transition: { delay: 0.15 + i * 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] },
-  }),
-};
+const COURTS = [
+  { src: court1,  location: "Miami, Florida"                },
+  { src: court2,  location: "Sedona, Arizona"               },
+  { src: court3,  location: "Austin, Texas"                 },
+  { src: court4,  location: "Los Angeles, CA"               },
+  { src: court5,  location: "Maldives"                      },
+  { src: court6,  location: "Paris, France"                 },
+  { src: court7,  location: "Bouton, Saint Lucia"           },
+  { src: court8,  location: "Rancho Santa Fe, California"   },
+  { src: court9,  location: "Burj Al Arab, Dubai"           },
+  { src: court10, location: "Borrego Springs, California"   },
+  { src: court11, location: "Positano, Italy"               },
+  { src: court12, location: "British Virgin Islands"        },
+  { src: court13, location: "Borrego Springs, California"   },
+  { src: court14, location: "Queens, New York"              },
+];
 
 export default function HomeSection() {
   return (
     <section id="home" className="scene home">
-      <div className="grid-bg" />
-      <div className="home-radar" aria-hidden="true">
-        <span />
-        <span />
-        <span />
+
+      {/* Full-bleed 7×2 photo grid */}
+      <div className="home-gallery">
+        {COURTS.map(({ src, location }, i) => (
+          <motion.div
+            key={location}
+            className="court-card"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.05 + i * 0.04, duration: 0.8, ease: "easeOut" }}
+          >
+            <img src={src} alt={location} loading={i > 6 ? "lazy" : "eager"} />
+            <div className="court-card-glass" />
+            <div className="court-card-label">{location}</div>
+          </motion.div>
+        ))}
       </div>
 
-      <div className="scene-inner home-inner">
-        <span className="hud-label">01 — Locate</span>
+      {/* Dark vignette so text pops */}
+      <div className="home-overlay" aria-hidden="true" />
 
+      {/* Text centered over the full grid */}
+      <div className="home-content">
         <h1 className="home-title">
-          {["Find your court.", "Start your quest."].map((t, i) => (
+          {["Start your", "next quest."].map((t, i) => (
             <span className="line-mask" key={t}>
               <motion.span
                 className="line"
-                custom={i}
-                variants={line}
-                initial="hidden"
-                animate="visible"
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{
+                  delay: 0.3 + i * 0.14,
+                  duration: 0.95,
+                  ease: [0.25, 1, 0.4, 1],
+                }}
               >
                 {t}
               </motion.span>
@@ -39,32 +78,13 @@ export default function HomeSection() {
 
         <motion.p
           className="home-sub"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.75, duration: 0.9, ease: [0.25, 1, 0.4, 1] }}
         >
-          The nearest, least-busy court — in one tap. CourtQuest reads live court
-          data and your location to send you straight to open play.
+          No more wasted drives. No more full courts.<br />
+          CourtQuest finds the nearest open one and sends you straight there.
         </motion.p>
-
-        <motion.div
-          className="home-cta"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <span className="pill">
-            <span className="pill-dot" /> iOS app — coming soon
-          </span>
-          <a
-            className="btn-ghost"
-            href="https://courtquest.vercel.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Try the web beta ↗
-          </a>
-        </motion.div>
       </div>
 
       <a href="#about" className="scroll-cue" aria-hidden="true">

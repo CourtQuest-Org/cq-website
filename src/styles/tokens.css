@@ -1,31 +1,56 @@
 :root {
-  /* Color — single accent, high contrast, dark-first */
-  --cq-accent: #f0455f;
-  --cq-accent-dim: #c9304a;
-  --cq-accent-soft: rgba(240, 69, 95, 0.12);
-  --cq-ink: #0b0c0e;
-  --cq-surface: #141518;
-  --cq-surface-2: #1c1e22;
-  --cq-line: rgba(255, 255, 255, 0.08);
-  --cq-paper: #f4f4f2;
-  --cq-text: #eef0f3;
-  --cq-mute: #8a8f98;
+  /* Brand pink (CourtQuest primary) */
+  --cq-pink:       #f73756;
+  --cq-pink-hl:    #f99cab;
+  --cq-pink-soft:  rgba(247, 55, 86, 0.08);
+  --cq-pink-light: #FFF0F3;
+  --cq-accent:     #f73756;
 
-  /* Type */
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Cream / parchment — warm, paper-like */
+  --cq-cream:      #F5F1EA;
+  --cq-cream-2:    #EDE7DC;
+  --cq-cream-3:    #D8CFBF;
 
-  /* Fluid scale */
-  --step-hero: clamp(2.8rem, 9vw, 8rem);
-  --step-h2: clamp(2rem, 5vw, 4.25rem);
-  --step-h3: clamp(1.25rem, 2.2vw, 1.9rem);
-  --step-label: clamp(0.7rem, 1vw, 0.8rem);
+  /* Muted sage — nature, outdoors, court grass */
+  --cq-sage:       #6B8C5C;
+  --cq-sage-soft:  rgba(107, 140, 92, 0.09);
+  --cq-sage-light: #ECF0E8;
+
+  /* Warm stone — benches, paths, quiet infrastructure */
+  --cq-stone:      #A39282;
+
+  /* Text */
+  --cq-ink:   #111110;
+  --cq-text:  #2A2520;
+  --cq-mute:  #8A7E76;
+  --cq-line:  rgba(28, 24, 20, 0.10);
+
+  /* Legacy surface aliases */
+  --cq-surface:   #EDE7DC;
+  --cq-surface-2: #D8CFBF;
+
+  /* Typography */
+  --font-display: 'Anton', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Fluid type scale */
+  --step-hero:  clamp(3.2rem, 10vw, 9.5rem);
+  --step-h2:    clamp(2rem, 5.5vw, 4.5rem);
+  --step-h3:    clamp(1.4rem, 2.8vw, 2.6rem);
+  --step-label: clamp(0.68rem, 0.9vw, 0.76rem);
 
   /* Layout */
-  --gutter: clamp(1.25rem, 5vw, 6rem);
-  --maxw: 1320px;
+  --gutter: clamp(1.5rem, 5vw, 6rem);
+  --maxw:   1340px;
 
-  /* Motion */
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --nav-h: 76px;
+  /* Motion — things settle, not snap */
+  --ease:         cubic-bezier(0.25, 1, 0.4, 1);
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --nav-h:        52px;
+
+  /* Elevation */
+  --shadow-sm:    0 1px 4px rgba(28, 24, 20, 0.05), 0 3px 12px rgba(28, 24, 20, 0.04);
+  --shadow:       0 2px 14px rgba(28, 24, 20, 0.07), 0 8px 32px rgba(28, 24, 20, 0.05);
+  --shadow-hover: 0 6px 28px rgba(28, 24, 20, 0.11), 0 18px 52px rgba(28, 24, 20, 0.07);
 }
