@@ -2,40 +2,36 @@ import { motion } from "motion/react";
 import court1  from "../../assets/tenniscourt1.png";
 import court2  from "../../assets/tenniscourt2.jpg";
 import court3  from "../../assets/tenniscourt3.jpg";
-import court4  from "../../assets/tenniscourt4.jpeg";
+import court4  from "../../assets/tenniscourt4.webp";
 import court5  from "../../assets/tenniscourt5.jpg";
-import court6  from "../../assets/tenniscourt6.webp";
-import court7  from "../../assets/tenniscourt7.jpg";
-import court8  from "../../assets/tenniscourt8.avif";
-import court9  from "../../assets/tenniscourt9.webp";
-import court10 from "../../assets/tenniscourt10.jpg";
-import court11 from "../../assets/tenniscourt11.avif";
+import court6  from "../../assets/tenniscourt6.avif";
+import court7  from "../../assets/tenniscourt7.webp";
+import court8 from "../../assets/tenniscourt8.jpg";
+import court9 from "../../assets/tenniscourt9.avif";
+import court10 from "../../assets/tenniscourt10.avif";
+import court11 from "../../assets/tenniscourt11.jpg";
 import court12 from "../../assets/tenniscourt12.avif";
-import court13 from "../../assets/tenniscourt13.jpg";
-import court14 from "../../assets/tenniscourt14.avif";
 
 const COURTS = [
   { src: court1,  location: "Miami, Florida"                },
   { src: court2,  location: "Sedona, Arizona"               },
-  { src: court3,  location: "Austin, Texas"                 },
-  { src: court4,  location: "Los Angeles, CA"               },
-  { src: court5,  location: "Maldives"                      },
-  { src: court6,  location: "Paris, France"                 },
-  { src: court7,  location: "Bouton, Saint Lucia"           },
-  { src: court8,  location: "Rancho Santa Fe, California"   },
-  { src: court9,  location: "Burj Al Arab, Dubai"           },
-  { src: court10, location: "Borrego Springs, California"   },
-  { src: court11, location: "Positano, Italy"               },
-  { src: court12, location: "British Virgin Islands"        },
-  { src: court13, location: "Borrego Springs, California"   },
-  { src: court14, location: "Queens, New York"              },
+  { src: court3,  location: "Maldives"                      },
+  { src: court4,  location: "Paris, France"                 },
+  { src: court5,  location: "Bouton, Saint Lucia"           },
+  { src: court6,  location: "Rancho Santa Fe, California"   },
+  { src: court7,  location: "Burj Al Arab, Dubai"           },
+  { src: court8, location: "Borrego Springs, California"   },
+  { src: court9, location: "Positano, Italy"               },
+  { src: court10, location: "British Virgin Islands"        },
+  { src: court11, location: "Borrego Springs, California"   },
+  { src: court12, location: "Queens, New York"              },
 ];
 
 export default function HomeSection() {
   return (
     <section id="home" className="scene home">
 
-      {/* Full-bleed 7×2 photo grid */}
+      {/* Full-bleed 6×2 photo grid */}
       <div className="home-gallery">
         {COURTS.map(({ src, location }, i) => (
           <motion.div

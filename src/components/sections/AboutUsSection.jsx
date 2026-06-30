@@ -1,14 +1,11 @@
 import { motion } from "motion/react";
 
 const TEAM = [
-  { name: "Aadhya Mittapalli", role: "Founder & Executive Lead" },
-  { name: "Vedant Chaudhari", role: "Technical Lead" },
-  { name: "Vihaan Kerekatte", role: "Executive Developer" },
-  { name: "Keerthana Thirukonda", role: "Social Media & Design" },
+  { name: "Aadhya Mittapalli", role: "Co-Founder" },
+  { name: "Vedant Chaudhari", role: "Co-Founder" },
+  { name: "Vihaan Kerekatte", role: "Co-Founder" },
   { name: "Jia Mathur", role: "Marketing & Outreach" },
-  { name: "Vedanth Iyengar", role: "Finance Manager" },
-  { name: "Keerthana Karthikeyan", role: "Head Frontend Developer" },
-  { name: "Vihaan Kinra", role: "Frontend Developer" },
+  { name: "Vedanth Iyengar", role: "Finance" },
 ];
 
 function initials(name) {
