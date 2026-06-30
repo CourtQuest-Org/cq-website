@@ -18,7 +18,7 @@ function Letters({ letters }) {
       initial="hidden"
       animate="visible"
       exit="hidden"
-      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       style={{ display: "inline-block", overflow: "hidden" }}
     >
       {ch}

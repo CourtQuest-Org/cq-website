@@ -13,12 +13,10 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const [collapsed, setCollapsed] = useState(false);
   const [pinging, setPinging] = useState(false);
-  const [solid, setSolid] = useState(false);
   const lenis = useLenis();
   const wasCollapsed = useRef(false);
 
   useMotionValueEvent(scrollY, "change", (y) => {
-    setSolid(y > 40);
     const next = y > window.innerHeight * 0.6;
     if (next !== wasCollapsed.current) {
       wasCollapsed.current = next;
@@ -39,23 +37,28 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`navbar ${solid ? "is-solid" : ""}`}>
+    <div className="nav-float">
       <a
         href="#home"
-        className="navbar-logo"
+        className="nav-pill nav-pill-logo"
         aria-label="CourtQuest — home"
         onClick={(e) => go(e, "#home")}
       >
         <Logo collapsed={collapsed} pinging={pinging} />
       </a>
 
-      <nav className="navbar-links">
+      <nav className="nav-pills-group">
         {LINKS.map((l) => (
-          <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}>
+          <a
+            key={l.href}
+            href={l.href}
+            className="nav-pill nav-pill-link"
+            onClick={(e) => go(e, l.href)}
+          >
             {l.label}
           </a>
         ))}
       </nav>
-    </header>
+    </div>
   );
 }
