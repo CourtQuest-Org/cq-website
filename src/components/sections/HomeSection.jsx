@@ -58,7 +58,7 @@ export default function HomeSection() {
       {/* Text centered over the full grid */}
       <div className="home-content">
         <h1 className="home-title">
-          {["Start your", "next quest."].map((t, i) => (
+          {["Start your", "next quest"].map((t, i) => (
             <span className="line-mask" key={t}>
               <motion.span
                 className="line"
