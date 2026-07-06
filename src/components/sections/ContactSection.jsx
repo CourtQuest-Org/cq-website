@@ -52,7 +52,7 @@ export default function ContactSection() {
 
         <footer className="contact-foot">
           <span>CourtQuest © 2026</span>
-          <span>iOS app V1.1 coming soon</span>
+          <span>iOS app coming soon</span>
         </footer>
       </div>
     </section>

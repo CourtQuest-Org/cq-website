@@ -12,13 +12,13 @@ const FEATURES = [
     icon: MousePointerClick,
     no: "02",
     title: "Just one button",
-    body: "Pick your sport, press once. CourtQuest scores every nearby court by travel time and how busy it is — then sends you straight to the best one. That simple.",
+    body: "Pick your sport, press once. CourtQuest scores every nearby court by travel time and how busy it is — then sends you straight to the best one.",
   },
   {
     icon: Sparkles,
     no: "03",
-    title: "More sports, soon",
-    body: "Tennis first. More courts and sports rolling out as we grow. Every quest you take helps the map get smarter for everyone.",
+    title: "Built for every game",
+    body: "Supporting tennis, pickleball, basketball, and more — CourtQuest already speaks your sport. New courts get added regularly, so the map keeps growing right alongside your quests.",
   },
 ];
 
