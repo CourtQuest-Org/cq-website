@@ -254,12 +254,12 @@
   font-weight: 400;
   font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   letter-spacing: 0.03em;
-  color: #fff;
-  text-shadow:
-    0 2px 12px rgba(0,0,0,0.55),
-    0 8px 40px rgba(0,0,0,0.35);
-  background: var(--cq-pink);
+  color: var(--cq-pink);
+  background: #fff;
   border: none;
+  box-shadow:
+    0 4px 18px rgba(0,0,0,0.22),
+    0 12px 40px rgba(0,0,0,0.18);
 }
 
 .home-cta {
