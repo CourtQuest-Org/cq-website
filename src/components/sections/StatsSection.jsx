@@ -3,11 +3,11 @@ import { motion } from "motion/react";
 const STATS = [
   {
     value: "One tap",
-    label: "From anywhere to open court",
+    label: "From your location to an open court",
   },
   {
-    value: "Live data",
-    label: "Real-time court availability",
+    value: "Trusted data",
+    label: "Availability you can count on",
   },
   {
     value: "Zero guessing",

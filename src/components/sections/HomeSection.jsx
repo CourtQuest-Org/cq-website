@@ -54,7 +54,7 @@ export default function HomeSection() {
       {/* Text centered over the full grid */}
       <div className="home-content">
         <h1 className="home-title">
-          {["Start your", "next quest"].map((t, i) => (
+          {["Start your quest"].map((t, i) => (
             <span className="line-mask" key={t}>
               <motion.span
                 className="line"
@@ -66,7 +66,7 @@ export default function HomeSection() {
                   ease: [0.25, 1, 0.4, 1],
                 }}
               >
-                {t}
+                Start your <span className="accent">quest</span>
               </motion.span>
             </span>
           ))}
@@ -79,11 +79,40 @@ export default function HomeSection() {
           transition={{ delay: 0.75, duration: 0.9, ease: [0.25, 1, 0.4, 1] }}
         >
           No more wasted drives. No more full courts.<br />
-          CourtQuest finds the nearest open one and sends you straight there.
+          CourtQuest locates the nearest court so you can start your quest.
+        </motion.p>
+
+        <motion.p
+          className="home-badge"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.95, duration: 0.9, ease: [0.25, 1, 0.4, 1] }}
+        >
+          Coming soon to iOS
         </motion.p>
       </div>
 
-      <a href="#about" className="scroll-cue" aria-hidden="true">
+      <a
+        href="#about"
+        className="scroll-cue"
+        onClick={(e) => {
+          e.preventDefault();
+          const target = document.getElementById("about");
+          if (!target) return;
+          const startY = window.scrollY;
+          const destY = startY + target.getBoundingClientRect().top;
+          const duration = 1400; // ms — higher = slower
+          const startTime = performance.now();
+          const easeInOut = (t) =>
+            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+          const step = (now) => {
+            const p = Math.min((now - startTime) / duration, 1);
+            window.scrollTo(0, startY + (destY - startY) * easeInOut(p));
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        }}
+      >
         <span>Scroll to explore</span>
         <span className="scroll-cue-line" />
       </a>

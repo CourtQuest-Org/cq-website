@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   z-index: 200;
-  padding: 14px var(--gutter);
+  padding: 14px var(--gutter) 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,6 +153,10 @@
   line-height: 1.75;
   max-width: 52ch;
 }
+.scene-lead .accent,
+.app-scene .accent {
+  color: var(--cq-pink);
+}
 
 /* ---------- Home ---------- */
 .home {
@@ -224,7 +228,7 @@
 .line {
   display: block;
 }
-.home-title .line-mask:last-child .line {
+.home-title .accent {
   color: var(--cq-pink);
 }
 .home-sub {
@@ -239,6 +243,25 @@
     0 1px 4px rgba(0,0,0,0.55),
     0 4px 20px rgba(0,0,0,0.50);
 }
+.home-badge {
+  margin: 1.5rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  letter-spacing: 0.03em;
+  color: #fff;
+  text-shadow:
+    0 2px 12px rgba(0,0,0,0.55),
+    0 8px 40px rgba(0,0,0,0.35);
+  background: var(--cq-pink);
+  border: none;
+}
+
 .home-cta {
   display: flex;
   align-items: center;
@@ -355,6 +378,13 @@
   padding: 0.65rem 0.85rem 1.6rem;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.46) 0%, transparent 100%);
 }
+/* 5th card: keep its label at the bottom (just above the hero "quest") */
+.home-gallery .court-card:nth-child(5) .court-card-label {
+  top: auto;
+  bottom: 0;
+  padding: 1.6rem 0.85rem 0.65rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.46) 0%, transparent 100%);
+}
 .court-card:hover .court-card-label {
   opacity: 1;
 }
@@ -447,7 +477,7 @@
 }
 .feature-row {
   display: grid;
-  grid-template-columns: 5rem 1fr;
+  grid-template-columns: 5rem 1fr minmax(0, 200px);
   gap: 2.5rem;
   padding: 3rem 0.5rem;
   border-bottom: 1.5px solid var(--cq-cream-3);
@@ -493,6 +523,18 @@
   line-height: 1.75;
   font-size: 1rem;
   max-width: 54ch;
+}
+.feature-row-shot {
+  align-self: center;
+  justify-self: end;
+}
+.feature-row-shot img {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 22px;
+  border: 1px solid var(--cq-cream-3);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ---------- Team / roster ---------- */
@@ -652,6 +694,8 @@
   .nav-pill-link { padding: 0.45rem 0.85rem; font-size: 0.8rem; }
   .feature-row { grid-template-columns: 3.5rem 1fr; gap: 1.5rem; padding: 2rem 0.5rem; }
   .feature-row-no { font-size: 2.2rem; }
+  .feature-row-shot { grid-column: 2 / 3; justify-self: start; margin-top: 1rem; }
+  .feature-row-shot img { max-width: 180px; }
   .roster-row {
     grid-template-columns: 44px 1fr auto;
     gap: 0.9rem;
