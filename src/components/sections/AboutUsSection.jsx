@@ -1,4 +1,6 @@
 import { motion } from "motion/react";
+import BrandName from "../BrandName";
+import "./AboutUsSection.css";
 
 const TEAM = [
   { name: "Aadhya Mittapalli", role: "Co-Founder" },
@@ -25,8 +27,8 @@ export default function AboutUsSection() {
             A team building the fastest way to <em>get on court.</em>
           </h2>
           <p className="scene-lead">
-            We're players first — frustrated by full courts and wasted drives.
-            CourtQuest is the tool we wanted, built by the people who needed it.
+            We're players first — frustrated by full courts and wasted drives.{" "}
+            <BrandName /> is the tool we wanted, built by the people who needed it.
           </p>
         </header>
 

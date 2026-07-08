@@ -1,0 +1,127 @@
+/* ---------- Floating pill nav ---------- */
+.nav-float {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 14px var(--gutter) 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.nav-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 100px;
+
+  /* Gradient bg = built-in top-left specular shimmer; stays very translucent */
+  background: var(--cq-cream);
+
+  /* Aggressive blur + subtle brightness lift — blur carries the frosted look */
+  backdrop-filter: var(--frost);
+  -webkit-backdrop-filter: var(--frost);
+
+  /* Rim is bright white to catch the specular; bottom edge is subtly dark */
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  /* Floating shadow + inner top spec + inner bottom grounding edge + left rim */
+  box-shadow:
+    0 4px 28px rgba(0, 0, 0, 0.14),
+    0 1.5px 6px rgba(0, 0, 0, 0.08),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.90),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    inset 1px 0 0 rgba(255, 255, 255, 0.22);
+
+  transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.25s var(--ease);
+}
+
+.nav-pill-logo {
+  padding: 0.5rem 0.85rem;
+}
+
+.nav-pills-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-pill-link {
+  padding: 0.5rem 1.15rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cq-ink);
+  letter-spacing: 0.01em;
+}
+.nav-pill-link:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.16) 55%,
+    rgba(255, 255, 255, 0.10) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 36px rgba(0, 0, 0, 0.16),
+    0 2px 8px rgba(0, 0, 0, 0.09),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    inset 1px 0 0 rgba(255, 255, 255, 0.30);
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+}
+.logo-word {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--cq-ink);
+  text-transform: uppercase;
+}
+.logo-q {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 0.92em;
+  width: auto;
+  margin-left: 0.05em;   /* gap between C and pin (visible when collapsed) */
+  margin-right: 0.08em;  /* gap between pin and UEST (only visible when expanded) */
+}
+.logo-pin {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transform: translateY(-0.04em);
+}
+.logo-ping {
+  position: absolute;
+  inset: 6%;
+  border-radius: 50%;
+  border: 2px solid var(--cq-pink);
+  opacity: 0;
+  pointer-events: none;
+}
+.logo-ping.is-on {
+  animation: ping 0.65s var(--ease);
+}
+@keyframes ping {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (max-width: 860px) {
+  .nav-pills-group { gap: 6px; }
+  .nav-pill-link { padding: 0.45rem 0.85rem; font-size: 0.8rem; }
+}

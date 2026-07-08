@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "motion/react";
 import Logo from "./Logo";
 import { useLenis } from "../lib/SmoothScroll";
+import "./Navbar.css";
 
 const LINKS = [
   { label: "The App", href: "#about" },

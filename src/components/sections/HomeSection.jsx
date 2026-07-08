@@ -1,39 +1,50 @@
 import { motion } from "motion/react";
-import court1  from "../../assets/tenniscourt1.png";
-import court2  from "../../assets/tenniscourt2.jpg";
-import court3  from "../../assets/tenniscourt3.jpg";
-import court4  from "../../assets/tenniscourt4.webp";
-import court5  from "../../assets/tenniscourt5.jpg";
-import court6  from "../../assets/tenniscourt6.avif";
-import court7  from "../../assets/tenniscourt7.webp";
-import court8 from "../../assets/tenniscourt8.jpg";
-import court9 from "../../assets/tenniscourt9.avif";
-import court10 from "../../assets/tenniscourt10.avif";
-import court11 from "../../assets/tenniscourt11.jpg";
-import court12 from "../../assets/tenniscourt12.avif";
+import BrandName from "../BrandName";
+import { EASE } from "../../lib/motion";
+import { useLenis } from "../../lib/SmoothScroll";
+import "./HomeSection.css";
+
+// Gallery photos resolved by filename — add/remove an entry below and drop the
+// matching file in assets/; no separate import block to keep in sync.
+const images = import.meta.glob("../../assets/tenniscourt*", {
+  eager: true,
+  import: "default",
+});
+const src = (file) => images[`../../assets/${file}`];
 
 const COURTS = [
-  { src: court1,  location: "Miami, Florida"                },
-  { src: court2,  location: "Sedona, Arizona"               },
-  { src: court3,  location: "Maldives"                      },
-  { src: court4,  location: "Paris, France"                 },
-  { src: court5,  location: "Bouton, Saint Lucia"           },
-  { src: court6,  location: "Rancho Santa Fe, California"   },
-  { src: court7,  location: "Burj Al Arab, Dubai"           },
-  { src: court8, location: "Borrego Springs, California"   },
-  { src: court9, location: "Positano, Italy"               },
-  { src: court10, location: "British Virgin Islands"        },
-  { src: court11, location: "Borrego Springs, California"   },
-  { src: court12, location: "Queens, New York"              },
+  { file: "tenniscourt1.png",  location: "Miami, Florida"                },
+  { file: "tenniscourt2.jpg",  location: "Sedona, Arizona"               },
+  { file: "tenniscourt3.jpg",  location: "Maldives"                      },
+  { file: "tenniscourt4.webp", location: "Paris, France"                 },
+  { file: "tenniscourt5.jpg",  location: "Bouton, Saint Lucia"           },
+  { file: "tenniscourt6.avif", location: "Rancho Santa Fe, California"   },
+  { file: "tenniscourt7.webp", location: "Burj Al Arab, Dubai"           },
+  { file: "tenniscourt8.jpg",  location: "Borrego Springs, California"   },
+  { file: "tenniscourt9.avif", location: "Positano, Italy"               },
+  { file: "tenniscourt10.avif", location: "British Virgin Islands"       },
+  { file: "tenniscourt11.jpg", location: "Borrego Springs, California"   },
+  { file: "tenniscourt12.avif", location: "Queens, New York"             },
 ];
 
 export default function HomeSection() {
+  const lenis = useLenis();
+
+  const scrollToAbout = (e) => {
+    e.preventDefault();
+    if (lenis) lenis.scrollTo("#about");
+    else
+      document
+        .getElementById("about")
+        ?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="home" className="scene home">
 
       {/* Full-bleed 6×2 photo grid */}
       <div className="home-gallery">
-        {COURTS.map(({ src, location }, i) => (
+        {COURTS.map(({ file, location }, i) => (
           <motion.div
             key={location}
             className="court-card"
@@ -41,7 +52,7 @@ export default function HomeSection() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.05 + i * 0.04, duration: 0.8, ease: "easeOut" }}
           >
-            <img src={src} alt={location} loading={i > 6 ? "lazy" : "eager"} />
+            <img src={src(file)} alt={location} loading={i > 6 ? "lazy" : "eager"} />
             <div className="court-card-glass" />
             <div className="court-card-label">{location}</div>
           </motion.div>
@@ -63,7 +74,7 @@ export default function HomeSection() {
                 transition={{
                   delay: 0.3 + i * 0.14,
                   duration: 0.95,
-                  ease: [0.25, 1, 0.4, 1],
+                  ease: EASE,
                 }}
               >
                 Start your <span className="accent">quest</span>
@@ -76,43 +87,23 @@ export default function HomeSection() {
           className="home-sub"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.75, duration: 0.9, ease: [0.25, 1, 0.4, 1] }}
+          transition={{ delay: 0.75, duration: 0.9, ease: EASE }}
         >
           No more wasted drives. No more full courts.<br />
-          CourtQuest locates the nearest court so you can start your quest.
+          <BrandName /> locates the nearest court so you can start your quest.
         </motion.p>
 
         <motion.p
           className="home-badge"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.95, duration: 0.9, ease: [0.25, 1, 0.4, 1] }}
+          transition={{ delay: 0.95, duration: 0.9, ease: EASE }}
         >
-          Coming soon to iOS
+          COMING SOON TO iOS
         </motion.p>
       </div>
 
-      <a
-        href="#about"
-        className="scroll-cue"
-        onClick={(e) => {
-          e.preventDefault();
-          const target = document.getElementById("about");
-          if (!target) return;
-          const startY = window.scrollY;
-          const destY = startY + target.getBoundingClientRect().top;
-          const duration = 1400; // ms — higher = slower
-          const startTime = performance.now();
-          const easeInOut = (t) =>
-            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-          const step = (now) => {
-            const p = Math.min((now - startTime) / duration, 1);
-            window.scrollTo(0, startY + (destY - startY) * easeInOut(p));
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        }}
-      >
+      <a href="#about" className="scroll-cue" onClick={scrollToAbout}>
         <span>Scroll to explore</span>
         <span className="scroll-cue-line" />
       </a>

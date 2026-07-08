@@ -1,0 +1,87 @@
+/* ---------- App section (features) ---------- */
+.app-scene {
+  background: #fff;
+}
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 1.5px solid var(--cq-cream-3);
+  border-radius: 22px;
+  cursor: default;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+.feature-card-shot {
+  height: 420px;
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-card-shot img {
+  display: block;
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+.feature-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feature-card-icon {
+  color: var(--cq-sage);
+  margin-bottom: 0.9rem;
+}
+.feature-card-content h3 {
+  font-family: var(--font-display);
+  font-size: var(--step-h3);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--cq-ink);
+  margin-bottom: 0.85rem;
+}
+.feature-card-no {
+  color: var(--cq-cream-3);
+  transition: color 0.4s var(--ease);
+}
+.feature-card:hover .feature-card-no {
+  color: var(--cq-pink-hl);
+}
+.feature-card-content p {
+  font-family: var(--font-body);
+  color: var(--cq-mute);
+  line-height: 1.75;
+  font-size: 1rem;
+  max-width: 40ch;
+}
+/* "CourtQuest" in the body starts colorless and reveals its real colors on hover */
+.feature-card .court-dark,
+.feature-card .accent {
+  color: var(--cq-mute);
+  transition: color 0.4s var(--ease);
+}
+.feature-card:hover .court-dark {
+  color: #000;
+}
+.feature-card:hover .accent {
+  color: var(--cq-pink);
+}
+
+@media (max-width: 860px) {
+  .feature-list { grid-template-columns: 1fr; gap: 1.5rem; }
+  .feature-card { padding: 2.5rem 1.5rem; }
+  .feature-card-shot img { max-width: 180px; }
+}

@@ -1,4 +1,5 @@
 import { Mail, Camera, Heart } from "lucide-react";
+import "./ContactSection.css";
 
 const LINKS = [
   {
@@ -16,7 +17,7 @@ const LINKS = [
   {
     icon: Heart,
     label: "Support",
-    value: "Back the quest",
+    value: "Back the Quest",
     href: "https://gofund.me/aef0dc55",
   },
 ];

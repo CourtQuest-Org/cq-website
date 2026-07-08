@@ -1,10 +1,10 @@
 :root {
   /* Brand pink (CourtQuest primary) */
   --cq-pink:       #f73756;
+  --cq-pink-rgb:   247 55 86;   /* channels for rgb(var(--cq-pink-rgb) / <a>) */
   --cq-pink-hl:    #f99cab;
-  --cq-pink-soft:  rgba(247, 55, 86, 0.08);
+  --cq-pink-soft:  rgb(var(--cq-pink-rgb) / 0.08);
   --cq-pink-light: #FFF0F3;
-  --cq-accent:     #f73756;
 
   /* Cream / parchment — warm, paper-like */
   --cq-cream:      #F5F1EA;
@@ -32,7 +32,7 @@
   /* Typography */
   --font-display: 'Anton', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --font-mono:    'Helvetica', ui-monospace, monospace;
 
   /* Fluid type scale */
   --step-hero:  clamp(3.2rem, 10vw, 9.5rem);
@@ -43,6 +43,9 @@
   /* Layout */
   --gutter: clamp(1.5rem, 5vw, 6rem);
   --maxw:   1340px;
+
+  /* Frosted-glass backdrop (nav pill, badges) */
+  --frost: blur(36px) saturate(180%) brightness(110%);
 
   /* Motion — things settle, not snap */
   --ease:         cubic-bezier(0.25, 1, 0.4, 1);

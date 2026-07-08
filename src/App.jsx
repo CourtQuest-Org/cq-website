@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/base.css";
 import SmoothScroll from "./lib/SmoothScroll";
 import Navbar from "./components/Navbar";
 import HomeSection from "./components/sections/HomeSection";

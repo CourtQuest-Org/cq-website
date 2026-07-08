@@ -1,8 +1,12 @@
 import { motion } from "motion/react";
-import { MapPin, MousePointerClick, Sparkles } from "lucide-react";
-import appMap from "../../assets/app-map.jpg";
-import appSports from "../../assets/app-sports.jpg";
-import appCourt from "../../assets/app-court.jpg";
+import { MapPin, MousePointerClick, Sparkles, Trophy } from "lucide-react";
+import BrandName, { withBrand } from "../BrandName";
+import { EASE } from "../../lib/motion";
+import "./AboutAppSection.css";
+import appMap from "../../assets/app-map.png";
+import appSports from "../../assets/app-sports.png";
+import appCourt from "../../assets/app-court.png";
+import appQuests from "../../assets/app-quests.png";
 
 const FEATURES = [
   {
@@ -29,21 +33,15 @@ const FEATURES = [
     image: appSports,
     imageAlt: "CourtQuest sport selection screen",
   },
+  {
+    icon: Trophy,
+    no: "04",
+    title: "Start your quest",
+    body: "Check in when you reach a court and start a quest in your sport. CourtQuest keeps track of your sessions, so every trip turns into progress worth chasing.",
+    image: appQuests,
+    imageAlt: "CourtQuest quests screen for starting a session at a court",
+  },
 ];
-
-// Render text with the "Quest" in every "CourtQuest" accented in brand pink.
-function accentQuest(text) {
-  return text.split("CourtQuest").flatMap((part, i) =>
-    i === 0
-      ? [part]
-      : [
-          <span key={i}>
-            Court<span className="accent">Quest</span>
-          </span>,
-          part,
-        ]
-  );
-}
 
 export default function AboutAppSection() {
   return (
@@ -54,8 +52,8 @@ export default function AboutAppSection() {
             One tap between you and <em>open play.</em>
           </h2>
           <p className="scene-lead">
-            You shouldn't have to drive around guessing which courts are open.
-            Court<span className="accent">Quest</span> blends your location, travel time, and busyness
+            You shouldn't have to drive around guessing which courts are open.{" "}
+            <BrandName /> blends your location, travel time, and busyness
             data — so you can start the quest.
           </p>
         </header>
@@ -64,23 +62,24 @@ export default function AboutAppSection() {
           {FEATURES.map(({ icon: Icon, no, title, body, image, imageAlt }, i) => (
             <motion.div
               key={no}
-              className="feature-row"
+              className="feature-card"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: i * 0.08, ease: [0.25, 1, 0.4, 1] }}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: EASE }}
             >
-              <span className="feature-row-no">{no}</span>
-              <div className="feature-row-content">
-                <Icon className="feature-row-icon" size={22} strokeWidth={1.5} />
-                <h3>{title}</h3>
-                <p>{accentQuest(body)}</p>
-              </div>
               {image && (
-                <div className="feature-row-shot">
+                <div className="feature-card-shot">
                   <img src={image} alt={imageAlt} loading="lazy" />
                 </div>
               )}
+              <div className="feature-card-content">
+                <Icon className="feature-card-icon" size={22} strokeWidth={1.5} />
+                <h3>
+                  <span className="feature-card-no">{no}</span> {title}
+                </h3>
+                <p>{withBrand(body)}</p>
+              </div>
             </motion.div>
           ))}
         </div>

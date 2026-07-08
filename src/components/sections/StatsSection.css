@@ -1,0 +1,62 @@
+/* ---------- Stats strip ---------- */
+.stats-scene {
+  background: var(--cq-sage-light);
+  padding: 5vh var(--gutter);
+  border-top: 1.5px solid rgba(107, 140, 92, 0.15);
+  border-bottom: 1.5px solid rgba(107, 140, 92, 0.15);
+}
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.4rem;
+  padding: 1.5rem 2rem 1.5rem 0;
+  border-right: 1.5px solid rgba(107, 140, 92, 0.18);
+}
+.stat-item:last-child {
+  border-right: none;
+  padding-left: 2rem;
+  padding-right: 0;
+}
+.stat-item:not(:first-child):not(:last-child) {
+  padding-left: 2rem;
+}
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--cq-ink);
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--cq-mute);
+  line-height: 1.5;
+}
+
+@media (max-width: 920px) {
+  .stats-inner {
+    grid-template-columns: 1fr;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1.5px solid rgba(107, 140, 92, 0.18);
+    padding: 1.5rem 0;
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+    padding-left: 0;
+  }
+  .stat-item:not(:first-child):not(:last-child) {
+    padding-left: 0;
+  }
+}

@@ -90,16 +90,6 @@ p {
   margin: 0 auto;
 }
 
-/* Subtle dot-grid texture (used sparingly) */
-.grid-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, var(--cq-cream-3) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.45;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

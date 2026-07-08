@@ -1,4 +1,6 @@
 import { motion } from "motion/react";
+import { EASE } from "../../lib/motion";
+import "./StatsSection.css";
 
 const STATS = [
   {
@@ -26,7 +28,7 @@ export default function StatsSection() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.75, delay: i * 0.1, ease: [0.25, 1, 0.4, 1] }}
+            transition={{ duration: 0.75, delay: i * 0.1, ease: EASE }}
           >
             <span className="stat-value">{value}</span>
             <span className="stat-label">{label}</span>
