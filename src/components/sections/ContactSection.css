@@ -65,10 +65,18 @@
 .contact-foot {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.45);
+}
+.contact-legal {
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.3s var(--ease);
+}
+.contact-legal:hover {
+  color: #fff;
 }
 
 @media (max-width: 860px) {

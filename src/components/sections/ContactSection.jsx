@@ -53,6 +53,9 @@ export default function ContactSection() {
 
         <footer className="contact-foot">
           <span>CourtQuest © 2026</span>
+          <a className="contact-legal" href="/privacy.html">
+            Privacy Policy
+          </a>
           <span>iOS app coming soon</span>
         </footer>
       </div>
