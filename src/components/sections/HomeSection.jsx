@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import BrandName from "../BrandName";
 import { EASE } from "../../lib/motion";
-import { useLenis } from "../../lib/SmoothScroll";
 import "./HomeSection.css";
 
 // Gallery photos resolved by filename — add/remove an entry below and drop the
@@ -28,17 +27,6 @@ const COURTS = [
 ];
 
 export default function HomeSection() {
-  const lenis = useLenis();
-
-  const scrollToAbout = (e) => {
-    e.preventDefault();
-    if (lenis) lenis.scrollTo("#about");
-    else
-      document
-        .getElementById("about")
-        ?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="home" className="scene home">
 
@@ -102,11 +90,6 @@ export default function HomeSection() {
           COMING SOON TO iOS
         </motion.p>
       </div>
-
-      <a href="#about" className="scroll-cue" onClick={scrollToAbout}>
-        <span>Scroll to explore</span>
-        <span className="scroll-cue-line" />
-      </a>
     </section>
   );
 }
