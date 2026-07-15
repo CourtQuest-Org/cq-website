@@ -10,12 +10,12 @@ const letterVariants = {
   visible: { width: "auto", opacity: 1, filter: "blur(0px)", x: 0 },
 };
 
-function Letters({ letters }) {
+function Letters({ letters, initial = "hidden" }) {
   return letters.map((ch, i) => (
     <motion.span
       key={i}
       variants={letterVariants}
-      initial="hidden"
+      initial={initial}
       animate="visible"
       exit="hidden"
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -34,7 +34,9 @@ export default function Logo({ collapsed = false, pinging = false }) {
   return (
     <motion.span className="logo-mark" layout>
       <motion.span className="logo-word" layout>
-        <Letters letters={PRE} />
+        {/* Never toggles, so it has no enter/exit — skip the mount animation
+            that AnimatePresence already suppresses for MID and POST. */}
+        <Letters letters={PRE} initial={false} />
         <AnimatePresence initial={false}>
           {!collapsed && <Letters letters={MID} key="mid" />}
         </AnimatePresence>

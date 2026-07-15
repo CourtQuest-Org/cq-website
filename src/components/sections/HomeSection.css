@@ -6,6 +6,7 @@
   display: block;
   position: relative;   /* explicit — don't rely on .scene inheritance */
   height: 100vh;        /* definite height so fr rows resolve */
+  height: 100svh;       /* mobile browsers: exclude the collapsing toolbar */
 }
 
 /* Full-bleed 7×2 grid (14 photos) */
@@ -183,12 +184,37 @@
   opacity: 1;
 }
 
+/* Column/row counts must multiply to exactly 12 (the number of photos) —
+   a leftover empty track still claims its 1fr and renders as bare scrim. */
 @media (max-width: 920px) {
   .home-gallery {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
   }
   .home-content {
     padding: 4rem var(--gutter);
+  }
+}
+
+@media (max-width: 600px) {
+  .home-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 4px;
+  }
+  .home-title {
+    font-size: clamp(2.4rem, 13vw, 4rem);
+    margin-bottom: 1.1rem;
+  }
+  .home-sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .home-badge {
+    font-size: 115%;
+    padding: 0.6rem 1.1rem;
+  }
+  .home-content {
+    padding: 5rem 1.25rem 3rem;
   }
 }

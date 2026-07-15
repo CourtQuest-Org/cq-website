@@ -34,7 +34,7 @@ export default function HomeSection() {
       <div className="home-gallery">
         {COURTS.map(({ file, location }, i) => (
           <motion.div
-            key={location}
+            key={file}
             className="court-card"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

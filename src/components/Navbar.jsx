@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "motion/react";
 import Logo from "./Logo";
 import { useLenis } from "../lib/SmoothScroll";
@@ -14,8 +14,16 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const [collapsed, setCollapsed] = useState(false);
   const [pinging, setPinging] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const lenis = useLenis();
   const wasCollapsed = useRef(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const next = y > window.innerHeight * 0.6;
@@ -31,6 +39,7 @@ export default function Navbar() {
 
   const go = (e, href) => {
     e.preventDefault();
+    setMenuOpen(false);
     const el = document.querySelector(href);
     if (!el) return;
     if (lenis) lenis.scrollTo(el, { offset: 0 });
@@ -60,6 +69,40 @@ export default function Navbar() {
           </a>
         ))}
       </nav>
+
+      <button
+        type="button"
+        className={`nav-pill nav-burger${menuOpen ? " is-open" : ""}`}
+        aria-label="Menu"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        <span className="nav-burger-bars" aria-hidden="true">
+          <span /><span /><span />
+        </span>
+      </button>
+
+      {menuOpen && (
+        <>
+          <div
+            className="nav-menu-scrim"
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <nav className="nav-menu">
+            {LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="nav-menu-link"
+                onClick={(e) => go(e, l.href)}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </>
+      )}
     </div>
   );
 }
