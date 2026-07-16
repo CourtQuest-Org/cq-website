@@ -17,8 +17,8 @@ const LINKS = [
   {
     icon: Heart,
     label: "Support",
-    value: "Back the Quest",
-    href: "https://gofund.me/aef0dc55",
+    value: "Buy us a Coffee!",
+    href: "https://buymeacoffee.com/courtquest",
   },
 ];
 
