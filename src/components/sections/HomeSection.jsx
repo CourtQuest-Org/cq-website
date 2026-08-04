@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import BrandName from "../BrandName";
 import { EASE } from "../../lib/motion";
+import { APP_STORE_URL } from "../../lib/links";
 import "./HomeSection.css";
 
 // Gallery photos resolved by filename — add/remove an entry below and drop the
@@ -81,14 +82,18 @@ export default function HomeSection() {
           <BrandName /> locates the nearest court so you can start your quest.
         </motion.p>
 
-        <motion.p
+        <motion.a
           className="home-badge"
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noreferrer"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.95, duration: 0.9, ease: EASE }}
         >
-          COMING SOON TO iOS
-        </motion.p>
+          DOWNLOAD ON iOS
+          <span className="home-badge-arrow">↗</span>
+        </motion.a>
       </div>
     </section>
   );

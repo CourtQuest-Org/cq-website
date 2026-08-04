@@ -109,6 +109,28 @@
   box-shadow:
     0 4px 18px rgba(0,0,0,0.22),
     0 12px 40px rgba(0,0,0,0.18);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.home-badge-arrow {
+  font-size: 0.85em;
+  line-height: 1;
+  transition: transform 0.3s var(--ease);
+}
+.home-badge:hover .home-badge-arrow,
+.home-badge:focus-visible .home-badge-arrow {
+  transform: translate(2px, -2px);
+}
+.home-badge:hover,
+.home-badge:focus-visible {
+  transform: translateY(-2px);
+  background: var(--cq-pink);
+  color: #fff;
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.26),
+    0 16px 48px rgba(0, 0, 0, 0.2);
 }
 
 .court-card {

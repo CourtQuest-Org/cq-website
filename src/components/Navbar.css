@@ -73,6 +73,30 @@
     inset 1px 0 0 rgba(255, 255, 255, 0.30);
 }
 
+/* Solid pink CTA — the one pill that isn't frosted, so it reads as the action */
+.nav-pill-cta {
+  padding: 0.5rem 1.15rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: var(--cq-pink);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 4px 28px rgba(var(--cq-pink-rgb) / 0.35),
+    0 1.5px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.35);
+}
+.nav-pill-cta:hover,
+.nav-pill-cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 34px rgba(var(--cq-pink-rgb) / 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
+}
+
 .logo-mark {
   display: inline-flex;
   align-items: center;
@@ -190,10 +214,22 @@
 .nav-menu-link:active {
   background: rgba(255, 255, 255, 0.5);
 }
+.nav-menu-cta {
+  margin-top: 0.25rem;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  background: var(--cq-pink);
+}
+.nav-menu-cta:active {
+  background: var(--cq-pink);
+  opacity: 0.85;
+}
 
 @media (max-width: 860px) {
   .nav-pills-group { gap: 6px; }
-  .nav-pill-link { padding: 0.45rem 0.85rem; font-size: 0.8rem; }
+  .nav-pill-link,
+  .nav-pill-cta { padding: 0.45rem 0.85rem; font-size: 0.8rem; }
 }
 
 @media (max-width: 700px) {

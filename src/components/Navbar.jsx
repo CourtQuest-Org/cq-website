@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "motion/react";
 import Logo from "./Logo";
 import { useLenis } from "../lib/SmoothScroll";
+import { APP_STORE_URL } from "../lib/links";
 import "./Navbar.css";
 
 const LINKS = [
@@ -68,6 +69,15 @@ export default function Navbar() {
             {l.label}
           </a>
         ))}
+
+        <a
+          href={APP_STORE_URL}
+          className="nav-pill nav-pill-cta"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Get the app
+        </a>
       </nav>
 
       <button
@@ -100,6 +110,16 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
+
+            <a
+              href={APP_STORE_URL}
+              className="nav-menu-link nav-menu-cta"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              Get the app
+            </a>
           </nav>
         </>
       )}

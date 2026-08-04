@@ -1,7 +1,14 @@
-import { Mail, Camera, Heart } from "lucide-react";
+import { Mail, Camera, Heart, Apple } from "lucide-react";
+import { APP_STORE_URL } from "../../lib/links";
 import "./ContactSection.css";
 
 const LINKS = [
+  {
+    icon: Apple,
+    label: "Get the app",
+    value: "Download on iOS",
+    href: APP_STORE_URL,
+  },
   {
     icon: Mail,
     label: "Email us",
@@ -56,7 +63,14 @@ export default function ContactSection() {
           <a className="contact-legal" href="/privacy.html">
             Privacy Policy
           </a>
-          <span>iOS app coming soon</span>
+          <a
+            className="contact-legal"
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Now on the App Store
+          </a>
         </footer>
       </div>
     </section>
