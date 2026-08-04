@@ -75,6 +75,7 @@
 
 /* Solid pink CTA — the one pill that isn't frosted, so it reads as the action */
 .nav-pill-cta {
+  cursor: pointer;
   padding: 0.5rem 1.15rem;
   font-family: var(--font-body);
   font-size: 0.875rem;
@@ -215,6 +216,7 @@
   background: rgba(255, 255, 255, 0.5);
 }
 .nav-menu-cta {
+  cursor: pointer;
   margin-top: 0.25rem;
   text-align: center;
   font-weight: 600;
