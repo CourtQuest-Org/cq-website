@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { MapPin } from "lucide-react";
 import { PINS } from "../../lib/usMap";
 import useSheetCities from "../../lib/useSheetCities";
+import { useSectionView } from "../../lib/analytics";
 import "./CitiesSection.css";
 
 // A single city chip — status dot, city, state abbreviation.
@@ -27,6 +28,9 @@ const FALLBACK_LIVE = PINS.filter((p) => p.status === "Done");
 const FALLBACK_SOON = PINS.filter((p) => p.status !== "Done");
 
 export default function CitiesSection() {
+  const sectionRef = useRef(null);
+  useSectionView(sectionRef, "cities");
+
   const trackRef = useRef(null);
   // How many copies of the city list fill each half of the track. The -50%
   // loop only looks continuous while one half is at least as wide as the
@@ -69,7 +73,7 @@ export default function CitiesSection() {
   }, [setsPerHalf, cities.length]);
 
   return (
-    <section className="cov-scene" id="cities">
+    <section className="cov-scene" id="cities" ref={sectionRef}>
       <div className="cov-inner">
         <span className="cov-eyebrow">Our coverage</span>
         <p className="cov-line">

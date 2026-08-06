@@ -1,7 +1,9 @@
+import { useRef } from "react";
 import { motion } from "motion/react";
 import BrandName from "../BrandName";
 import { EASE } from "../../lib/motion";
 import { APP_STORE_URL } from "../../lib/links";
+import { trackAppStore, useSectionView, PLACEMENTS } from "../../lib/analytics";
 import "./HomeSection.css";
 
 // Gallery photos resolved by filename — add/remove an entry below and drop the
@@ -28,8 +30,11 @@ const COURTS = [
 ];
 
 export default function HomeSection() {
+  const ref = useRef(null);
+  useSectionView(ref, "home");
+
   return (
-    <section id="home" className="scene home">
+    <section id="home" className="scene home" ref={ref}>
 
       {/* Full-bleed 6×2 photo grid */}
       <div className="home-gallery">
@@ -87,6 +92,7 @@ export default function HomeSection() {
           href={APP_STORE_URL}
           target="_blank"
           rel="noreferrer"
+          onClick={() => trackAppStore(PLACEMENTS.HERO)}
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.95, duration: 0.9, ease: EASE }}

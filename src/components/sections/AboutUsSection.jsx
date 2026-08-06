@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { motion } from "motion/react";
 import BrandName from "../BrandName";
+import { useSectionView } from "../../lib/analytics";
 import "./AboutUsSection.css";
 
 const TEAM = [
@@ -19,8 +21,11 @@ function initials(name) {
 }
 
 export default function AboutUsSection() {
+  const ref = useRef(null);
+  useSectionView(ref, "team");
+
   return (
-    <section id="team" className="scene team-scene">
+    <section id="team" className="scene team-scene" ref={ref}>
       <div className="scene-inner">
         <header className="scene-head">
           <h2 className="scene-title">

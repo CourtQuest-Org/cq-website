@@ -3,6 +3,7 @@ import { useScroll, useMotionValueEvent } from "motion/react";
 import Logo from "./Logo";
 import { useLenis } from "../lib/SmoothScroll";
 import { APP_STORE_URL } from "../lib/links";
+import { trackAppStore, PLACEMENTS } from "../lib/analytics";
 import "./Navbar.css";
 
 const LINKS = [
@@ -75,6 +76,7 @@ export default function Navbar() {
           className="nav-pill nav-pill-cta"
           target="_blank"
           rel="noreferrer"
+          onClick={() => trackAppStore(PLACEMENTS.NAVBAR)}
         >
           Get the app
         </a>
@@ -116,7 +118,10 @@ export default function Navbar() {
               className="nav-menu-link nav-menu-cta"
               target="_blank"
               rel="noreferrer"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                trackAppStore(PLACEMENTS.MOBILE_MENU);
+                setMenuOpen(false);
+              }}
             >
               Get the app
             </a>

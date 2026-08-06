@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { motion } from "motion/react";
 import { EASE } from "../../lib/motion";
+import { useSectionView } from "../../lib/analytics";
 import "./StatsSection.css";
 
 const STATS = [
@@ -18,8 +20,11 @@ const STATS = [
 ];
 
 export default function StatsSection() {
+  const ref = useRef(null);
+  useSectionView(ref, "stats");
+
   return (
-    <section className="stats-scene">
+    <section className="stats-scene" ref={ref}>
       <div className="stats-inner">
         {STATS.map(({ value, label }, i) => (
           <motion.div

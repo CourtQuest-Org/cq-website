@@ -1,7 +1,9 @@
+import { useRef } from "react";
 import { motion } from "motion/react";
 import { MapPin, MousePointerClick, Sparkles, Trophy } from "lucide-react";
 import BrandName, { withBrand } from "../BrandName";
 import { EASE } from "../../lib/motion";
+import { useSectionView } from "../../lib/analytics";
 import "./AboutAppSection.css";
 import appMap from "../../assets/app-map.png";
 import appSports from "../../assets/app-sports.png";
@@ -44,8 +46,11 @@ const FEATURES = [
 ];
 
 export default function AboutAppSection() {
+  const ref = useRef(null);
+  useSectionView(ref, "app_screenshots");
+
   return (
-    <section id="about" className="scene app-scene">
+    <section id="about" className="scene app-scene" ref={ref}>
       <div className="scene-inner">
         <header className="scene-head">
           <h2 className="scene-title">
